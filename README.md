@@ -39,12 +39,13 @@ Clone the current repository to your local machine using the following command:
    Additionally, from the cloned `bes-image-classification` repository, copy the `bes-image-classification.h5` file. Then, from the `bes-image-classification/counterfit` folder, copy the `bes_image_classification.npz` file. Paste both files into the `targets/bes_image_classification` folder of the CounterFit tool from where CounterFit is running.
 
    ```sh
-   bes-image-classification/                  counterfit/
-   ├── bes-image-classification.h5   ------>  ├── targets/
-   ├── counterfit/                            │   ├── bes_image_classification.py
-   │   ├── bes_image_classification.py  ----> │   ├── bes_image_classification/
-   │   ├── bes_image_classification.npz  ---->│       ├── bes-image-classification.h5
-                                              │       ├── bes_image_classification.npz
+   bes-image-classification/                           counterfit/
+   ├── bes-image-classification.h5 ------------------>  ├── counterfit/
+   ├── counterfit/                                      │   ├── targets/
+   │   ├── bes_image_classification.py  ------------->  │       ├── bes_image_classification.py
+   │   └── bes_image_classification.npz  ------------>  │       ├── bes_image_classification/
+   │                                                    │           ├── bes-image-classification.h5
+   │                                                    │           └── bes_image_classification.npz
    ```
 
 After copying the files, you can use the **bes-image-classification** model with CounterFit DAST as per the tool's usage guidelines.
