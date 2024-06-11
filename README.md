@@ -48,6 +48,7 @@ Additionally, from the cloned `bes-image-classification` repository, copy the `b
    │   ├── bes_image_classification.py  ----> │   ├── bes_image_classification/
    │   ├── bes_image_classification.npz  ---->│       ├── bes-image-classification.h5
                                               │       ├── bes_image_classification.npz
+   ```
 
 After copying the files, you can use the **bes_image_classification** model with CounterFit DAST as per the tool's usage guidelines.
 
