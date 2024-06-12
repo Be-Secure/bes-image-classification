@@ -1,31 +1,54 @@
-# bes_image_classification
+# bes-image-classification
 
-This repository contains the **bes_image_classification** model and target file which can be used with the CounterFit tool for Dynamic Application Security Testing (DAST).
+## Overview
+This image classification model is designed to classify grayscale images of handwritten digits (0-9). The model has been trained using the popular MNIST dataset and can predict the class of an input image, returning a probability distribution over the 10 possible digit classes.
 
-## Usage Instructions
+## Model Architecture
+The model architecture is a simple Convolutional Neural Network (CNN) designed with the following layers:
+* **Input Layer:** 28x28 grayscale images
+* **Convolutional Layers:** Two layers with 32 and 64 filters, respectively, using ReLU activation
+* **MaxPooling Layers:** Two layers with 2x2 pool size
+* **Dense Layer:** 128 neurons with ReLU activation
+* **Output Layer:** 10 neurons (one for each digit) with softmax activation
 
-Follow these steps to use the bes_image_classification model with CounterFit:
 
-1. **Clone the Repository**
+## Training
+The model is trained on the MNIST dataset, which consists of 60,000 training images and 10,000 testing images. Each image is a 28x28 pixel grayscale image of handwritten digits. The training process includes:
+* **Loss Function**: Sparse Categorical Crossentropy
+* **Optimizer**: Adam
+* **Metrics**: Accuracy
 
-   Clone the current repository to your local machine using the following command:
-   ```sh
-   git clone https://github.com/Be-Secure/bes_image_classification.git
 
-2. **Prepare the CounterFit Tool**
+## Security Assessments
+Be-Secure has conducted security assessments on this model using CounterFit and AIShield. Below are the detailed steps to perform these assessments.
 
-   Start the **CounterFit** by following the setup instructions provided in its [documentation](https://github.com/Be-Secure/counterfit). Once the tool is running, execute the following command within CounterFit to create the necessary environment for the **bes_image_classification** model:
+### CounterFit Assessment
+1. **Prepare the CounterFit Tool**
+Start the CounterFit tool by following the setup instructions provided in its [documentation](https://github.com/Be-Secure/counterfit). Once the tool is running, execute the following command within CounterFit to create the necessary environment for the **bes-image-classification** model:
    ```sh
    new -n bes_image_classification -d image
 
-4. **Copy Files to CounterFit**
+2. **Clone bes-image-classification**
+Clone the current repository to your local machine using the following command:
+   ```sh
+   git clone https://github.com/Be-Secure/bes_image_classification.git
    
-    Navigate to the `bes_image_classification/counterfit` folder inside the cloned repository and copy all its contents. This folder includes another `bes_image_classification` folder and a `bes_image_classification.py file`. You need to paste these contents into the `targets` folder of the CounterFit tool where it is running, replacing the existing `bes_image_classification.py` file. The typical path for the `targets` folder in CounterFit is `counterfit/counterfit/targets`.
+3. **Copy Files to CounterFit tool**
 
-After copying the files, you can use the **bes_image_classification** model with CounterFit DAST as per the tool's usage guidelines.
+   Inside the cloned `bes-image-classification` repository, navigate to the `counterfit` folder and copy `bes_image_classification.py`. Paste it inside the `targets` folder of the CounterFit tool where it is running.
+   Additionally, from the cloned `bes-image-classification` repository, copy the `bes-image-classification.h5` file. Then, from the `bes-image-classification/counterfit` folder, copy the `bes_image_classification.npz` file. Paste both files into the `targets/bes_image_classification` folder of the CounterFit tool from where CounterFit is running.
 
-## Additional Information
+   ```sh
+   bes-image-classification/                           counterfit/
+   ├── bes-image-classification.h5 ------------------>  ├── counterfit/
+   ├── counterfit/                                      │   ├── targets/
+   │   ├── bes_image_classification.py  ------------->  │       ├── bes_image_classification.py
+   │   └── bes_image_classification.npz  ------------>  │       ├── bes_image_classification/
+   │                                                    │           ├── bes-image-classification.h5
+   │                                                    │           └── bes_image_classification.npz
+   ```
 
+After copying the files, you can use the **bes-image-classification** model with CounterFit DAST as per the tool's usage guidelines.
 For more details on how to configure and run the CounterFit, refer to the [CounterFit documentation](https://github.com/Be-Secure/counterfit).
 
 ## License
