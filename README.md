@@ -1,4 +1,4 @@
-# bes-image-classification
+# bes_image_classification
 
 ## Overview
 This image classification model is designed to classify grayscale images of handwritten digits (0-9). The model has been trained using the popular MNIST dataset and can predict the class of an input image, returning a probability distribution over the 10 possible digit classes.
@@ -24,22 +24,35 @@ Be-Secure has conducted security assessments on this model using CounterFit and 
 
 ### CounterFit Assessment
 1. **Prepare the CounterFit Tool**
-Start the CounterFit tool by following the setup instructions provided in its [documentation](https://github.com/Be-Secure/counterfit). Once the tool is running, execute the following command within CounterFit to create the necessary environment for the **bes-image-classification** model:
-   ```sh
-   new -n bes_image_classification -d image
 
-2. **Clone bes-image-classification**
-Clone the current repository to your local machine using the following command:
+   Start the CounterFit tool by following the instructions provided below:
+      ```sh
+      cd ~/counterfit
+      conda activate counterfit
+      counterfit
+      ```
+   Once the tool is running, execute the following command in CounterFit terminal to create the necessary environment for the **bes_image_classification** model:
+      ```sh
+      new -n bes_image_classification -d image
+      python3 -m pip install opencv-python
+      ```
+   Exit the current CounterFit session by executing the below command in CounterFit terminal.
    ```sh
-   git clone https://github.com/Be-Secure/bes_image_classification.git
+   exit counterfit
    
-3. **Copy Files to CounterFit tool**
+3. **Clone bes_image_classification**
+   
+   Clone the current repository to your local machine (outside counterfit source code dir) using the following command:
+      ```sh
+      git clone https://github.com/Be-Secure/bes_image_classification.git
+      
+5. **Copy Files to CounterFit tool**
 
-   Inside the cloned `bes-image-classification` repository, navigate to the `counterfit` folder and copy `bes_image_classification.py`. Paste it inside the `targets` folder of the CounterFit tool where it is running.
+   Inside the cloned `bes_image_classification` repository, navigate to the `counterfit` folder and copy `bes_image_classification.py`. Paste it inside the `targets` folder of the CounterFit tool where it is running.
    Additionally, from the cloned `bes_image_classification` repository, copy the `bes_image_classification.h5` file. Then, from the `bes_image_classification/counterfit` folder, copy the `bes_image_classification.npz` file. Paste both files into the `targets/bes_image_classification` folder of the CounterFit tool from where CounterFit is running.
 
    ```sh
-   bes-image-classification/                           counterfit/
+   bes_image_classification/                           counterfit/
    ├── bes_image_classification.h5 ------------------>  ├── counterfit/
    ├── counterfit/                                      │   ├── targets/
    │   ├── bes_image_classification.py  ------------->  │       ├── bes_image_classification.py
@@ -50,7 +63,7 @@ Clone the current repository to your local machine using the following command:
 
    `Note: bes_image_classification.npz is the sample input file and it has 10 sample files, index 0-9`
 
-After copying the files, you can use the **bes-image-classification** model with CounterFit DAST as per the tool's usage guidelines.
+After copying the files, you can use the **bes_image_classification** model with CounterFit DAST as per the tool's usage guidelines.
 For more details on how to configure and run the CounterFit, refer to the [CounterFit documentation](https://github.com/Be-Secure/counterfit).
 
 ## License
