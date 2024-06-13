@@ -36,17 +36,19 @@ Clone the current repository to your local machine using the following command:
 3. **Copy Files to CounterFit tool**
 
    Inside the cloned `bes-image-classification` repository, navigate to the `counterfit` folder and copy `bes_image_classification.py`. Paste it inside the `targets` folder of the CounterFit tool where it is running.
-   Additionally, from the cloned `bes-image-classification` repository, copy the `bes-image-classification.h5` file. Then, from the `bes-image-classification/counterfit` folder, copy the `bes_image_classification.npz` file. Paste both files into the `targets/bes_image_classification` folder of the CounterFit tool from where CounterFit is running.
+   Additionally, from the cloned `bes_image_classification` repository, copy the `bes_image_classification.h5` file. Then, from the `bes_image_classification/counterfit` folder, copy the `bes_image_classification.npz` file. Paste both files into the `targets/bes_image_classification` folder of the CounterFit tool from where CounterFit is running.
 
    ```sh
    bes-image-classification/                           counterfit/
-   ├── bes-image-classification.h5 ------------------>  ├── counterfit/
+   ├── bes_image_classification.h5 ------------------>  ├── counterfit/
    ├── counterfit/                                      │   ├── targets/
    │   ├── bes_image_classification.py  ------------->  │       ├── bes_image_classification.py
    │   └── bes_image_classification.npz  ------------>  │       ├── bes_image_classification/
-   │                                                    │           ├── bes-image-classification.h5
+   │                                                    │           ├── bes_image_classification.h5
    │                                                    │           └── bes_image_classification.npz
    ```
+
+   `Note: bes_image_classification.npz is the sample input file and it has 10 sample files, index 0-9`
 
 After copying the files, you can use the **bes-image-classification** model with CounterFit DAST as per the tool's usage guidelines.
 For more details on how to configure and run the CounterFit, refer to the [CounterFit documentation](https://github.com/Be-Secure/counterfit).

@@ -8,7 +8,7 @@ class Bes_image_classification(CFTarget):
     data_type = "image"
     task = "classification"
     #endpoint = "./counterfit/targets/bes_image_classification/bes-image-classification.h5"
-    endpoint = f"counterfit/targets/bes_image_classification/bes-image-classification.h5"
+    endpoint = f"counterfit/targets/bes_image_classification/bes_image_classification.h5"
     img_row, img_col, channel = 28, 28, 1 
     input_shape = (img_row, img_col, channel)
     output_classes = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
@@ -41,7 +41,7 @@ class Bes_image_classification(CFTarget):
                         metrics=['accuracy'])
         
         # Save the updated model
-        self.model.save("./counterfit/targets/bes_image_classification/modified_bes-image-classification.h5")
+        self.model.save("./counterfit/targets/bes_image_classification/modified_bes_image_classification.h5")
 
     def predict(self, x):
         predictions = self.model.predict(x)
